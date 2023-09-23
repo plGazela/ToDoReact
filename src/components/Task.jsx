@@ -15,12 +15,12 @@ function Task({ task, completeTask, deleteTask }) {
       <div className="row g-0">
         <div className="col-auto py-3 ps-3">
           <form className="form-check d-flex justify-content-center">
-            <input className="form-check-input" type="checkbox" id="taskCompleted" onChange={ (e) => completeTask(task.id, !e.target.checked) } />
+            <input className="form-check-input" type="checkbox" id="taskCompleted" onChange={ (e) => completeTask(task.id, !e.target.checked)} defaultChecked={!task.inProgress} />
           </form>
         </div>
         <div className="col-10">
           <div className="card-body">
-            <h5 className="card-title">{ task.title }</h5>
+            <h5 className={"card-title " + (!task.inProgress ? "text-decoration-line-through" : "")}>{ task.title }</h5>
             <p className="card-text">{ task.description }</p>
           </div>
         </div>
